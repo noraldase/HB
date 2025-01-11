@@ -91,42 +91,6 @@
             margin-top: 60px;
         }
 
-        /* Hujan huruf atau angka acak */
-        .rain {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-        }
-
-        .rain span {
-            position: absolute;
-            font-size: 2rem;
-            color: #00ff00;
-            animation: fall linear infinite;
-            opacity: 0.8;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(100vh);
-            }
-        }
-
-        /* Speed Control */
-        .rain span:nth-child(even) {
-            animation-duration: 2s; 
-        }
-
-        .rain span:nth-child(odd) {
-            animation-duration: 3s; 
-        }
-
         /* Time Display */
         .time {
             position: fixed;
@@ -218,37 +182,10 @@
         <p>&copy; 2025 ArtNova. All rights reserved.</p>
     </div>
 
-    <!-- Hujan huruf atau angka acak -->
-    <div class="rain" id="rain"></div>
-
     <!-- Time Display -->
     <div class="time" id="time"></div>
 
     <script>
-        // Hujan huruf atau angka acak yang bergerak lurus
-        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        const rainContainer = document.getElementById("rain");
-
-        // Create a random falling character
-        function createRain() {
-            const span = document.createElement("span");
-            const randomChar = characters.charAt(Math.floor(Math.random() * characters.length));
-            span.textContent = randomChar;
-            const startPosX = Math.random() * window.innerWidth;
-
-            span.style.left = `${startPosX}px`; // Random start position for each character
-
-            rainContainer.appendChild(span);
-
-            // Remove characters once they fall out of the screen
-            span.addEventListener('animationiteration', () => {
-                span.remove();
-            });
-        }
-
-        // Generate falling characters every 50ms for a more intense effect
-        setInterval(createRain, 50);
-
         // Time Display (Current time in New York timezone)
         function updateTime() {
             const now = new Date();
