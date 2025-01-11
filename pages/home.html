@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Terminal</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            background: url('image/bg.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #00ff00;
+            overflow: hidden;
+        }
+
+        /* Terminal Animation */
+        .terminal {
+            position: fixed;
+            top: 20px; /* Move terminal text to top */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.8); /* Black background for terminal */
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00ff00;
+        }
+
+        .terminal h1 {
+            font-size: 4rem;
+            text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+            animation: flicker 1.5s infinite;
+            margin-bottom: 1rem;
+        }
+
+        .terminal p {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            animation: flicker 1.5s infinite;
+        }
+
+        /* About Text with Background */
+        .about {
+            position: fixed;
+            top: 40%; 
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            width: auto;
+            max-width: 80%;
+            text-align: center;
+            box-shadow: 0 0 10px #00ff00;
+            animation: flicker 1.5s infinite;
+        }
+
+        /* Bottom Buttons */
+        .buttons {
+            position: fixed;
+            bottom: 60px; /* Move buttons just above footer */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            color: #00ff00;
+            background-color: transparent;
+            border: 2px solid #00ff00;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background-color: #00ff00;
+            color: black;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1rem;
+            color: #888;
+        }
+
+        /* Hujan huruf atau angka acak */
+        .rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        .rain span {
+            position: absolute;
+            font-size: 2rem;
+            color: #00ff00;
+            animation: fall linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Speed Control */
+        .rain span:nth-child(even) {
+            animation-duration: 2s; 
+        }
+
+        .rain span:nth-child(odd) {
+            animation-duration: 3s; 
+        }
+
+        /* Time Display */
+        .time {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <!-- Terminal Content -->
+    <div class="terminal">
+        <h1>Hacker Terminal</h1>
+        <p>Welcome to the dark web. Access granted.</p>
+    </div>
+
+    <!-- About Text with Background -->
+    <div class="about">
+        <p>> Initiating ArtNova launch protocol...</p>
+        <p>> Generating groundbreaking AI designs...</p>
+        <p>> Stay tuned for more updates...</p>
+    </div>
+
+    <!-- Bottom Buttons -->
+    <div class="buttons">
+        <a href="#" class="button">Twitter</a>
+        <a href="#" class="button">Telegram</a>
+        <a href="#" class="button">Buy</a> <!-- New Buy Button -->
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 ArtNova. All rights reserved.</p>
+    </div>
+
+    <!-- Hujan huruf atau angka acak -->
+    <div class="rain" id="rain"></div>
+
+    <!-- Time Display -->
+    <div class="time" id="time"></div>
+
+    <script>
+        // Hujan huruf atau angka acak yang bergerak lurus
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        const rainContainer = document.getElementById("rain");
+
+        // Create a random falling character
+        function createRain() {
+            const span = document.createElement("span");
+            const randomChar = characters.charAt(Math.floor(Math.random() * characters.length));
+            span.textContent = randomChar;
+            const startPosX = Math.random() * window.innerWidth;
+
+            span.style.left = `${startPosX}px`; // Random start position for each character
+
+            rainContainer.appendChild(span);
+
+            // Remove characters once they fall out of the screen
+            span.addEventListener('animationiteration', () => {
+                span.remove();
+            });
+        }
+
+        // Generate falling characters every 50ms for a more intense effect
+        setInterval(createRain, 50);
+
+        // Time Display (Current time in New York timezone)
+        function updateTime() {
+            const now = new Date();
+            const options = { timeZone: 'America/New_York', hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const timeString = now.toLocaleString('en-US', options);
+            document.getElementById("time").textContent = timeString;
+        }
+
+        setInterval(updateTime, 1000); // Update time every second
+    </script>
+</body>
+</html>
