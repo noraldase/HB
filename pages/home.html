@@ -61,8 +61,13 @@
 
         /* Bottom Buttons */
         .buttons {
-            text-align: center;
-            margin-top: 40px;
+            position: fixed;
+            bottom: 10px; /* Position buttons at the bottom of the page */
+            left: 50%;
+            transform: translateX(-50%); /* Center buttons horizontally */
+            display: flex;
+            gap: 1rem;
+            z-index: 10;
         }
 
         .button {
@@ -74,7 +79,6 @@
             border-radius: 30px;
             text-decoration: none;
             transition: background-color 0.3s, transform 0.3s;
-            margin: 0.5rem;
         }
 
         .button:hover {
