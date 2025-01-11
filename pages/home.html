@@ -61,13 +61,8 @@
 
         /* Bottom Buttons */
         .buttons {
-            position: fixed;
-            bottom: 40px; /* Position buttons above footer */
-            left: 50%;
-            transform: translateX(-50%); /* Center buttons horizontally */
-            display: flex;
-            gap: 1rem;
-            z-index: 10;
+            text-align: center;
+            margin-top: 40px;
         }
 
         .button {
@@ -79,6 +74,7 @@
             border-radius: 30px;
             text-decoration: none;
             transition: background-color 0.3s, transform 0.3s;
+            margin: 0.5rem;
         }
 
         .button:hover {
@@ -87,16 +83,18 @@
             transform: scale(1.1);
         }
 
-        /* Footer */
+        /* Footer - Positioned at the bottom */
         .footer {
             position: fixed;
             bottom: 0;
+            left: 0;
             width: 100%;
             text-align: center;
             font-size: 1rem;
             color: #888;
+            padding: 1rem;
             background-color: rgba(0, 0, 0, 0.8);
-            padding: 10px 0;
+            box-shadow: 0 -1px 10px #00ff00;
         }
 
         /* Time Display */
@@ -167,7 +165,7 @@
 <body>
     <!-- Terminal Content -->
     <div class="terminal">
-        <h1>VibeAI Terminal</h1>
+        <h1>Hacker Terminal</h1>
         <p>Welcome to the dark web. Access granted.</p>
     </div>
 
@@ -180,7 +178,7 @@
 
     <!-- Bottom Buttons -->
     <div class="buttons">
-        <a href="https://x.com/VibeAIAgent" class="button">Twitter</a>
+        <a href="#" class="button">Twitter</a>
         <a href="#" class="button">Telegram</a>
         <a href="#" class="button">Buy</a> <!-- New Buy Button -->
     </div>
