@@ -11,22 +11,22 @@
             background: url('image/bg.gif') no-repeat center center fixed;
             background-size: cover;
             color: #00ff00;
-            overflow: hidden;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 0 10px; /* Ensure there's padding on small screens */
         }
 
         /* Terminal Animation */
         .terminal {
-            position: fixed;
-            top: 20px; /* Move terminal text to top */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
             text-align: center;
             font-size: 2rem;
             padding: 2rem;
-            background-color: rgba(0, 0, 0, 0.8); /* Black background for terminal */
+            background-color: rgba(0, 0, 0, 0.8);
             border-radius: 10px;
             box-shadow: 0 0 20px #00ff00;
+            margin-top: 50px;
         }
 
         .terminal h1 {
@@ -44,31 +44,25 @@
 
         /* About Text with Background */
         .about {
-            position: fixed;
-            top: 40%; 
-            left: 50%;
-            transform: translateX(-50%);
+            margin-top: 30px;
+            text-align: center;
             font-size: 1.5rem;
             color: #00ff00;
             text-shadow: 0 0 10px #00ff00;
             background-color: rgba(0, 0, 0, 0.7); 
             padding: 0.5rem 1rem;
             border-radius: 10px;
-            width: auto;
             max-width: 80%;
-            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
             box-shadow: 0 0 10px #00ff00;
             animation: flicker 1.5s infinite;
         }
 
         /* Bottom Buttons */
         .buttons {
-            position: fixed;
-            bottom: 60px; /* Move buttons just above footer */
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 1rem;
+            text-align: center;
+            margin-top: 40px;
         }
 
         .button {
@@ -80,6 +74,7 @@
             border-radius: 30px;
             text-decoration: none;
             transition: background-color 0.3s, transform 0.3s;
+            margin: 0.5rem;
         }
 
         .button:hover {
@@ -90,12 +85,10 @@
 
         /* Footer */
         .footer {
-            position: fixed;
-            bottom: 5px;
-            left: 50%;
-            transform: translateX(-50%);
+            text-align: center;
             font-size: 1rem;
             color: #888;
+            margin-top: 60px;
         }
 
         /* Hujan huruf atau angka acak */
@@ -143,6 +136,59 @@
             color: #00ff00;
             text-shadow: 0 0 10px #00ff00;
             z-index: 10;
+        }
+
+        /* Media Queries for mobile responsiveness */
+        @media (max-width: 768px) {
+            .terminal h1 {
+                font-size: 2.5rem;
+            }
+
+            .terminal p {
+                font-size: 1.2rem;
+            }
+
+            .about {
+                font-size: 1.2rem;
+                padding: 0.5rem;
+                max-width: 90%;
+            }
+
+            .buttons .button {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .footer {
+                font-size: 0.9rem;
+                margin-top: 20px;
+            }
+
+            .time {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Further adjustments for smaller screens */
+        @media (max-width: 480px) {
+            .terminal h1 {
+                font-size: 2rem;
+            }
+
+            .terminal p {
+                font-size: 1rem;
+            }
+
+            .about {
+                font-size: 1rem;
+                padding: 0.3rem;
+                max-width: 95%;
+            }
+
+            .buttons .button {
+                font-size: 0.9rem;
+                padding: 0.5rem 1.2rem;
+            }
         }
     </style>
 </head>
