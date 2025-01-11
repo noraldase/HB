@@ -58,6 +58,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
+            padding: 1rem;
         }
 
         .content h1 {
@@ -76,6 +77,7 @@
         /* Buttons container */
         .buttons {
             display: flex;
+            flex-wrap: wrap;
             gap: 1rem; /* Space between buttons */
             justify-content: center;
         }
@@ -114,11 +116,19 @@
             text-align: center;
             z-index: 100;
             display: none;
+            max-width: 90%; /* Responsive width */
+            box-sizing: border-box;
         }
 
         .popup h2 {
             margin-bottom: 1rem;
             text-shadow: 0 0 10px #00ff00;
+            font-size: 1.5rem;
+        }
+
+        .popup p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .popup button {
@@ -160,6 +170,18 @@
                 padding: 0.8rem 2rem;
                 font-size: 1rem;
             }
+
+            .popup {
+                padding: 1rem;
+            }
+
+            .popup h2 {
+                font-size: 1.2rem;
+            }
+
+            .popup p {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -178,20 +200,9 @@
     <!-- Pop-up -->
     <div class="popup" id="roadmapPopup">
         <h2>Roadmap</h2>
-        <p>Q1 2025 - Initial Research and Development
-> AI Technology Research: Develop and test AI algorithms for crypto market analysis and price prediction.
-> MVP Development: Create a minimum viable product (MVP) for early testing, featuring basic tools such as simple market analysis and price notifications.
-> Community & Education: Develop educational content to help the community understand how AI works in the crypto space</p>
-        <p>Q2 2025 - Beta Launch & Initial Integrations
-> Beta Launch: Release the beta version of the platform to a select group of users, allowing them to test AI features and provide feedback.
-> Crypto Exchange API Integrations: Connect the platform with major crypto exchanges to get real-time market data.
-> Enhanced Security: Implement advanced security features to protect user data and transactions.
-> Initial Marketing Campaign: Start promotional activities and build a community on social media and crypto forums</p>
-        <p>Q3 2025 - Product Enhancement & Feature Expansion
-> AI Algorithm Improvements: Update algorithms to offer deeper analysis, more accurate predictions, and smarter recommendations.
-> Smart Alert Features: Add automated alerts for significant market movements or specific cryptocurrency price changes.
-> Personal AI Assistant Development: Develop a personal AI assistant to provide investment suggestions based on user preferences and risk profiles.
-> UI/UX Enhancements: Refine the user interface (UI) for easier navigation and interaction.</p>
+        <p>Q1 2025 - Initial Research and Development</p>
+        <p>Q2 2025 - Beta Launch & Initial Integrations</p>
+        <p>Q3 2025 - Product Enhancement & Feature Expansion</p>
         <button onclick="closePopup()">Close</button>
     </div>
 
